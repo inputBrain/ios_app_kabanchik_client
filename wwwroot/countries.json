@@ -1,0 +1,32 @@
+﻿[
+  {
+    "country": "Republic of Austria",
+    "language": "Austro-Bavarian German",
+    "flagPath": "../flags/128x128/flag_of_austria.png"
+  },
+  {
+    "country": "United Kingdom of Great Britain",
+    "language": "English",
+    "flagPath": "../flags/128x128/britain.png"
+  },
+  {
+    "country": "French Republic",
+    "language": "French",
+    "flagPath": "../flags/128x128/france.png"
+  },
+  {
+    "country": "Kingdom of Spain",
+    "language": "Spanish",
+    "flagPath": "../flags/128x128/spain.png"
+  },
+  {
+    "country": "Russian Federation",
+    "language": "Russian",
+    "flagPath": "../flags/128x128/russia.png"
+  },
+  {
+    "country": "Federal Republic of Germany",
+    "language": "German",
+    "flagPath": "../flags/128x128/germany.png"
+  }
+]
