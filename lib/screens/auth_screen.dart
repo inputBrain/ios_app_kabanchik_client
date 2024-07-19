@@ -11,7 +11,7 @@ class AuthScreen extends StatelessWidget {
           onPressed: () async {
 
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => const RegistrationScreen(),
+                builder: (context) => const ChooseLanguageScreen(),
               ));
 
           },
