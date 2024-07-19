@@ -84,7 +84,7 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: selectedLanguage == country['language'] ? Colors.blue : Colors.transparent,
+            color: selectedLanguage == country['language'] ? Colors.cyan : Colors.transparent,
             width: 2,
           ),
         ),

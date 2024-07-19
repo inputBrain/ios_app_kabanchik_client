@@ -2,7 +2,7 @@
   {
     "country": "Republic of Austria",
     "language": "Austro-Bavarian German",
-    "flagPath": "wwwroot/flags/128x128/flag_of_austria.png"
+    "flagPath": "wwwroot/flags/128x128/at.png"
   },
   {
     "country": "United Kingdom of Great Britain",
@@ -27,6 +27,6 @@
   {
     "country": "Federal Republic of Germany",
     "language": "German",
-    "flagPath": "wwwroot/flags/128x128/germany.png"
+    "flagPath": "wwwroot/flags/128x128/german.png"
   }
 ]

@@ -65,8 +65,10 @@ flutter:
    - wwwroot/flags/128x128/flag_of_austria.png
    - wwwroot/flags/128x128/france.png
    - wwwroot/flags/128x128/germany.png
+   - wwwroot/flags/128x128/german.png
    - wwwroot/flags/128x128/russia.png
    - wwwroot/flags/128x128/spain.png
+   - wwwroot/flags/128x128/at.png
    - wwwroot/countries.json
 #   - images/a_dot_ham.jpeg
 
