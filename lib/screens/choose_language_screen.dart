@@ -99,7 +99,6 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
   Widget _buildMoreButton() {
     return ElevatedButton(
       onPressed: () {
-        // Show all flags in a new screen or dialog
         _showAllFlags();
       },
       child: Text('...'),
