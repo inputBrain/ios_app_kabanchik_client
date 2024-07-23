@@ -5,13 +5,15 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var registerUserModel = RegisterUserModel.EmptyUserRegistryModel();
+
     return Scaffold(
       body: Center(
         child: ElevatedButton.icon(
           onPressed: () async {
 
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => const ChooseLanguageScreen(),
+                builder: (context) => ChooseLanguageScreen(userModel: registerUserModel),
               ));
 
           },

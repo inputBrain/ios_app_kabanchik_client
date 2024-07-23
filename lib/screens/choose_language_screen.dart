@@ -1,7 +1,10 @@
 import '../imports.dart';
 
 class ChooseLanguageScreen extends StatefulWidget {
-  const ChooseLanguageScreen({Key? key}) : super(key: key);
+  final RegisterUserModel userModel;
+
+
+  const ChooseLanguageScreen({Key? key, required this.userModel}) : super(key: key);
 
   @override
   _ChooseLanguageScreenState createState() => _ChooseLanguageScreenState();
@@ -56,9 +59,11 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
                   ),
                   itemCount: countries.length + (countries.length > 25 ? 1 : 0),
                   itemBuilder: (context, index) {
-                    if (index < 25) {
+                    if (index < 25)
+                    {
                       return _buildFlagItem(countries[index]);
-                    } else if (index == 25 && countries.length > 25) {
+                    } else if (index == 25 && countries.length > 25)
+                    {
                       return _buildMoreButton();
                     }
                     return null;
@@ -78,7 +83,10 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
         setState(() {
           selectedLanguage = country['language'];
         });
-        // Here you can navigate to the next screen or handle the selection
+
+        //TODO: handle selection and navigate to the next screen
+        widget.userModel.appLanguage = country['language'];
+
         print('Selected language: ${country['language']}');
       },
       child: Container(
