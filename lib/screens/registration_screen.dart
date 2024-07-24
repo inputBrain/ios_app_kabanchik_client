@@ -82,7 +82,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             _buildNavigationButton('back', () {
                               Navigator.pop(context);
                             }),
-                            _buildNavigationButton('next', isNextEnabled ? () {
+                            _buildNavigationButton('further', isNextEnabled ? () {
                               registerUserModel.clientStatus = selectedOption;
                               Navigator.push(
                                 context,
@@ -139,13 +139,27 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   Widget _buildNavigationButton(String text, VoidCallback? onPressed) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.cyan,
+      padding: const EdgeInsets.symmetric(horizontal: 55.0, vertical: 73.0),
+      child: Container(
+        decoration: const BoxDecoration(
+          color: Color.fromRGBO(116, 192, 188, 1),
+          borderRadius: BorderRadius.zero,
         ),
-        child: Text(text),
+        child: TextButton(
+          onPressed: onPressed,
+          style: TextButton.styleFrom(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            backgroundColor: Colors.transparent,
+          ),
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+        ),
       ),
     );
   }
