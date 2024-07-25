@@ -57,9 +57,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 10, top: 50),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            padding: const EdgeInsets.only(left: 60, top: 50, right: 10),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 _buildOptionButton(
                                   'For the client\n(to order services)',
@@ -105,32 +105,25 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     bool isSelected = selectedOption == option;
     return GestureDetector(
       onTap: () => _selectOption(option),
-      child: Container(
-        width: 200,
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.orange, width: 0.5),
-          borderRadius: BorderRadius.circular(100),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.orange, width: 0.5),
-                color: isSelected ? Colors.black : Colors.white,
-              ),
+      child: Row(
+        children: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.orange, width: 0.5),
+              color: isSelected ? Colors.black : Colors.white,
             ),
-            const SizedBox(height: 10),
-            Text(
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
               text,
-              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
