@@ -52,7 +52,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               'User registration',
                               style: TextStyle(
                                 fontSize: constraints.maxWidth * 0.06,
-                                fontWeight: FontWeight.bold,
+                                fontFamily: 'JacquesFrancoisShadow'
                               ),
                             ),
                           ),
@@ -61,7 +61,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           flex: 4,
                           child: Center(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 _buildOptionButton(
                                   'For the client\n(to order services)',
@@ -157,6 +157,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               fontSize: 26,
               fontWeight: FontWeight.bold,
               color: Colors.black,
+              fontFamily: 'Rokkitt'
             ),
           ),
         ),

@@ -45,8 +45,11 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
               const Padding(
                 padding: EdgeInsets.only(top: 20),
                 child: Text(
-                  'Choose language',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  'choose language',
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontFamily: 'JacquesFrancoisShadow'
+                  ),
                 ),
               ),
               Expanded(
