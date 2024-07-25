@@ -46,48 +46,58 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     child: Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                            child: Text(
-                              'User registration',
-                              style: TextStyle(
-                                fontSize: constraints.maxWidth * 0.07,
-                                fontFamily: 'JacquesFrancoisShadow',
-                              ),
-                            ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 60, top: 50, right: 10),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                _buildOptionButton(
-                                  'For the client\n(to order services)',
-                                  ClientStatus.client,
-                                ),
-                                const SizedBox(height: 20),
-                                _buildOptionButton(
-                                  'For the masters\n(to start earning)',
-                                  ClientStatus.master,
-                                ),
-                              ],
+                          padding: EdgeInsets.only(top: constraints.maxHeight * 0.05),
+                          child: Text(
+                            'User registration',
+                            style: TextStyle(
+                              fontSize: constraints.maxWidth * 0.07,
+                              fontFamily: 'JacquesFrancoisShadow',
                             ),
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            _buildNavigationButton('back', () {
-                              Navigator.pop(context);
-                            }),
-                            _buildNavigationButton('further', isNextEnabled ? () {
-                              registerUserModel.clientStatus = selectedOption;
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => NextScreen()),
-                              );
-                            } : null),
-                          ],
+                        Expanded(
+                          child: Center(
+                            child: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                maxWidth: constraints.maxWidth * 0.8,
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  _buildOptionButton(
+                                    'For the client\n(to order services)',
+                                    ClientStatus.client,
+                                  ),
+                                  SizedBox(height: constraints.maxHeight * 0.03),
+                                  _buildOptionButton(
+                                    'For the masters\n(to start earning)',
+                                    ClientStatus.master,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: constraints.maxWidth * 0.05,
+                            vertical: constraints.maxHeight * 0.02,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              _buildNavigationButton('back', () {
+                                Navigator.pop(context);
+                              }),
+                              _buildNavigationButton('further', isNextEnabled ? () {
+                                registerUserModel.clientStatus = selectedOption;
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => NextScreen()),
+                                );
+                              } : null),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -120,7 +130,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           Expanded(
             child: Text(
               text,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 30, fontFamily: 'Rokkitt'),
             ),
           ),
         ],
