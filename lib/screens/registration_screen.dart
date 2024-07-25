@@ -45,22 +45,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   child: IntrinsicHeight(
                     child: Column(
                       children: [
-                        Expanded(
-                          flex: 1,
-                          child: Center(
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
                             child: Text(
                               'User registration',
                               style: TextStyle(
-                                fontSize: constraints.maxWidth * 0.06,
-                                fontFamily: 'JacquesFrancoisShadow'
+                                fontSize: constraints.maxWidth * 0.07,
+                                fontFamily: 'JacquesFrancoisShadow',
                               ),
                             ),
-                          ),
                         ),
                         Expanded(
-                          flex: 4,
-                          child: Center(
-                            child: Column(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10, top: 50),
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 _buildOptionButton(
@@ -148,13 +146,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         child: TextButton(
           onPressed: onPressed,
           style: TextButton.styleFrom(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0),
             backgroundColor: Colors.transparent,
           ),
           child: Text(
             text,
             style: const TextStyle(
-              fontSize: 26,
+              fontSize: 30,
               fontWeight: FontWeight.bold,
               color: Colors.black,
               fontFamily: 'Rokkitt'
