@@ -1,15 +1,15 @@
 import '../imports.dart';
 
-class ChooseLanguageScreen extends StatefulWidget {
+class Registration1Screen extends StatefulWidget {
   final RegisterUserModel userModel;
 
-  const ChooseLanguageScreen({Key? key, required this.userModel}) : super(key: key);
+  const Registration1Screen({Key? key, required this.userModel}) : super(key: key);
 
   @override
-  _ChooseLanguageScreenState createState() => _ChooseLanguageScreenState();
+  _Registration1ScreenState createState() => _Registration1ScreenState();
 }
 
-class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
+class _Registration1ScreenState extends State<Registration1Screen> {
   List<Map<String, dynamic>> countries = [];
   String? selectedLanguage;
 
@@ -83,7 +83,7 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => RegistrationScreen(userModel: widget.userModel),
+                            builder: (context) => Registration2Screen(userModel: widget.userModel),
                           ),
                         );
                       } else {

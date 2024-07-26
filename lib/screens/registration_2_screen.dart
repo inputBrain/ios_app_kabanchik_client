@@ -1,15 +1,15 @@
 import '../imports.dart';
 
-class RegistrationScreen extends StatefulWidget {
+class Registration2Screen extends StatefulWidget {
   final RegisterUserModel userModel;
 
-  const RegistrationScreen({Key? key, required this.userModel}) : super(key: key);
+  const Registration2Screen({Key? key, required this.userModel}) : super(key: key);
 
   @override
-  _RegistrationScreenState createState() => _RegistrationScreenState();
+  _Registration2ScreenState createState() => _Registration2ScreenState();
 }
 
-class _RegistrationScreenState extends State<RegistrationScreen> {
+class _Registration2ScreenState extends State<Registration2Screen> {
   ClientStatus? selectedOption;
   bool isNextEnabled = false;
 

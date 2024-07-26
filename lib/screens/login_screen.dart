@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
           onPressed: () async {
 
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => ChooseLanguageScreen(userModel: registerUserModel),
+                builder: (context) => Registration1Screen(userModel: registerUserModel),
               ));
 
           },
