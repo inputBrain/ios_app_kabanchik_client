@@ -3,7 +3,6 @@ import '../imports.dart';
 class ChooseLanguageScreen extends StatefulWidget {
   final RegisterUserModel userModel;
 
-
   const ChooseLanguageScreen({Key? key, required this.userModel}) : super(key: key);
 
   @override
@@ -62,15 +61,52 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
                   ),
                   itemCount: countries.length + (countries.length > 25 ? 1 : 0),
                   itemBuilder: (context, index) {
-                    if (index < 25)
-                    {
+                    if (index < 25) {
                       return _buildFlagItem(countries[index]);
-                    } else if (index == 25 && countries.length > 25)
-                    {
+                    } else if (index == 25 && countries.length > 25) {
                       return _buildMoreButton();
                     }
                     return null;
                   },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _buildNavigationButton('further', () {
+                      if (selectedLanguage != null) {
+                        widget.userModel.appLanguage = selectedLanguage!;
+
+                        // Navigate to the RegistrationScreen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RegistrationScreen(userModel: widget.userModel),
+                          ),
+                        );
+                      } else {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Language not selected'),
+                              content: Text('Please select a language'),
+                              actions: [
+                                TextButton(
+                                  child: Text('OK'),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
+                    }),
+                  ],
                 ),
               ),
             ],
@@ -86,10 +122,6 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
         setState(() {
           selectedLanguage = country['language'];
         });
-
-        //TODO: handle selection and navigate to the next screen
-        widget.userModel.appLanguage = country['language'];
-
         print('Selected language: ${country['language']}');
       },
       child: Container(
@@ -144,6 +176,31 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
           ),
         );
       },
+    );
+  }
+
+  Widget _buildNavigationButton(String text, VoidCallback onPressed) {
+    return Container(
+      decoration: const BoxDecoration(
+        color: Color.fromRGBO(116, 192, 188, 1),
+        borderRadius: BorderRadius.zero,
+      ),
+      child: TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0),
+          backgroundColor: Colors.transparent,
+        ),
+        child: Text(
+          text,
+          style: const TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontFamily: 'Rokkitt'
+          ),
+        ),
+      ),
     );
   }
 }
