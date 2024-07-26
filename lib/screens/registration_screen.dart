@@ -48,7 +48,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(top: constraints.maxHeight * 0.05),
+                          padding: EdgeInsets.only(
+                              top: constraints.maxHeight * 0.05),
                           child: Text(
                             'User registration',
                             style: TextStyle(
@@ -64,13 +65,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 maxWidth: constraints.maxWidth * 0.8,
                               ),
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment
+                                    .spaceEvenly,
                                 children: [
                                   _buildOptionButton(
                                     'For the client\n(to order services)',
                                     ClientStatus.client,
                                   ),
-                                  SizedBox(height: constraints.maxHeight * 0.03),
+                                  SizedBox(
+                                      height: constraints.maxHeight * 0.03),
                                   _buildOptionButton(
                                     'For the masters\n(to start earning)',
                                     ClientStatus.master,
@@ -88,16 +91,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              _buildNavigationButton('back', () {
+                              ScreenNavigationWidget(
+                                text: 'back', onPressed: () {
                                 Navigator.pop(context);
-                              }),
-                              _buildNavigationButton('further', isNextEnabled ? () {
+                              },
+                              ),
+                              ScreenNavigationWidget(
+                                text: 'further', onPressed: isNextEnabled ? () {
                                 widget.userModel.clientStatus = selectedOption;
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => NextScreen(userModel: widget.userModel)),
+                                  MaterialPageRoute(builder: (context) =>
+                                      NextScreen(userModel: widget.userModel)),
                                 );
-                              } : null),
+                              } : null,
+                              ),
                             ],
                           ),
                         ),
@@ -139,36 +147,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       ),
     );
   }
-
-  Widget _buildNavigationButton(String text, VoidCallback? onPressed) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 55.0, vertical: 73.0),
-      child: Container(
-        decoration: const BoxDecoration(
-          color: Color.fromRGBO(116, 192, 188, 1),
-          borderRadius: BorderRadius.zero,
-        ),
-        child: TextButton(
-          onPressed: onPressed,
-          style: TextButton.styleFrom(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0),
-            backgroundColor: Colors.transparent,
-          ),
-          child: Text(
-            text,
-            style: const TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-              fontFamily: 'Rokkitt'
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 }
-
 
 class NextScreen extends StatelessWidget {
   final RegisterUserModel userModel;
@@ -227,11 +206,11 @@ class NextScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _buildNavigationButton('back', () {
+                        ScreenNavigationWidget(text: 'back', onPressed: () {
                           Navigator.pop(context);
                         }),
-                        _buildNavigationButton('further', () {
-                          // Add navigation logic for the 'further' button
+                        ScreenNavigationWidget(text: 'further', onPressed: () {
+
                         }),
                       ],
                     ),
@@ -239,33 +218,6 @@ class NextScreen extends StatelessWidget {
                 ],
               );
             },
-          ),
-        ),
-      ),
-    );
-  }
-  Widget _buildNavigationButton(String text, VoidCallback onPressed) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 55.0, vertical: 73.0),
-      child: Container(
-        decoration: const BoxDecoration(
-          color: Color.fromRGBO(116, 192, 188, 1),
-          borderRadius: BorderRadius.zero,
-        ),
-        child: TextButton(
-          onPressed: onPressed,
-          style: TextButton.styleFrom(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0),
-            backgroundColor: Colors.transparent,
-          ),
-          child: Text(
-            text,
-            style: const TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-                fontFamily: 'Rokkitt'
-            ),
           ),
         ),
       ),
