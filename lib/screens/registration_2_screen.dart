@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import '../imports.dart';
 
 class Registration2Screen extends StatefulWidget {
@@ -27,8 +29,6 @@ class _Registration2ScreenState extends State<Registration2Screen> {
 
   @override
   Widget build(BuildContext context) {
-    // var registerUserModel = RegisterUserModel.emptyUserRegistryModel();
-
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -49,7 +49,8 @@ class _Registration2ScreenState extends State<Registration2Screen> {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(
-                              top: constraints.maxHeight * 0.05),
+                              top: constraints.maxHeight * 0.05
+                          ),
                           child: Text(
                             'User registration',
                             style: TextStyle(
@@ -65,19 +66,11 @@ class _Registration2ScreenState extends State<Registration2Screen> {
                                 maxWidth: constraints.maxWidth * 0.8,
                               ),
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment
-                                    .spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  _buildOptionButton(
-                                    'For the client\n(to order services)',
-                                    ClientStatus.client,
-                                  ),
-                                  SizedBox(
-                                      height: constraints.maxHeight * 0.03),
-                                  _buildOptionButton(
-                                    'For the masters\n(to start earning)',
-                                    ClientStatus.master,
-                                  ),
+                                  _buildOptionButton('For the client\n(to order services)', ClientStatus.client),
+                                  SizedBox(height: constraints.maxHeight * 0.03),
+                                  _buildOptionButton('For the masters\n(to start earning)', ClientStatus.master),
                                 ],
                               ),
                             ),
@@ -97,7 +90,7 @@ class _Registration2ScreenState extends State<Registration2Screen> {
                               },
                               ),
                               ScreenNavigationWidget(
-                                text: 'further', onPressed: isNextEnabled ? () {
+                                text: 'further', isFurtherEnabled: isNextEnabled,  onPressed: isNextEnabled ? () {
                                 widget.userModel.clientStatus = selectedOption;
                                 Navigator.push(
                                   context,
@@ -123,24 +116,34 @@ class _Registration2ScreenState extends State<Registration2Screen> {
 
   Widget _buildOptionButton(String text, ClientStatus option) {
     bool isSelected = selectedOption == option;
+    
     return GestureDetector(
       onTap: () => _selectOption(option),
       child: Row(
         children: [
           Container(
-            width: 50,
-            height: 50,
+            width: 55,
+            height: 55,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: Colors.orange, width: 0.5),
-              color: isSelected ? Colors.black : Colors.white,
+              border: Border.all(
+                  color: const Color.fromRGBO(238, 108, 56, 1),
+                  width: 10
+              ),
+              color: isSelected ? const Color.fromRGBO(73, 68, 65, 1) : Colors.white,
             ),
           ),
           const SizedBox(width: 10),
-          Expanded(
+          Padding(
+            padding: const EdgeInsets.only(left: 30),
             child: Text(
               text,
-              style: const TextStyle(fontSize: 30, fontFamily: 'Rokkitt'),
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  fontSize: 36,
+                  fontFamily: 'Rokkitt',
+                  fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ],

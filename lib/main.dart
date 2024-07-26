@@ -1,3 +1,5 @@
+import 'package:kabanchik_app/models/RegisterUserModel.dart';
+
 import 'imports.dart';
 
 void main() async {
@@ -10,12 +12,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var userModel = RegisterUserModel.emptyUserRegistryModel();
+
     return MaterialApp(
       title: 'IOS App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen(),
+      home: Registration2Screen(userModel: userModel),
     );
   }
 }
