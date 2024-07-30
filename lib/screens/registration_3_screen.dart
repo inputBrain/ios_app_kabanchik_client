@@ -31,10 +31,10 @@ class _Registration3ScreenState extends State<Registration3Screen> {
           ),
         ),
         child: SafeArea(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              return SingleChildScrollView(
-                child: Center(
+          child: Center(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return SingleChildScrollView(
                   child: Container(
                     width: constraints.maxWidth * 0.7,
                     decoration: const BoxDecoration(
@@ -46,86 +46,58 @@ class _Registration3ScreenState extends State<Registration3Screen> {
                       ),
                     ),
                     child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "about the project++",
+                        InfoColumn(
+                          title: "about the project ++",
                         ),
-                        Text(
-                          "how it works",
+                        InfoColumn(
+                          title: "how it works",
                         ),
-                        Text(
-                          "guarantee and safety",
-
+                        InfoColumn(
+                          title: "guarantee and safety",
                         ),
                       ],
                     ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         ),
       ),
     );
   }
 }
+class InfoColumn extends StatelessWidget {
+  final String title;
 
-// class InfoColumn extends StatefulWidget {
-//   final String title;
-//   final String content;
-//
-//   InfoColumn({required this.title, required this.content});
-//
-//   @override
-//   _InfoColumnState createState() => _InfoColumnState();
-// }
-//
-// class _InfoColumnState extends State<InfoColumn> with SingleTickerProviderStateMixin {
-//   bool _isExpanded = false;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       margin: const EdgeInsets.all(10),
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           GestureDetector(
-//             onTap: () {
-//               setState(() {
-//                 _isExpanded = !_isExpanded;
-//               });
-//             },
-//             child: Row(
-//               children: [
-//                 Expanded(
-//                   child: Padding(
-//                     padding: const EdgeInsets.all(8.0),
-//                     child: Text(
-//                       widget.title,
-//                       style: TextStyle(
-//                         fontSize: 18,
-//                         fontWeight: FontWeight.bold,
-//                       ),
-//                     ),
-//                   ),
-//                 ),
-//                 AnimatedRotation(
-//                   turns: _isExpanded ? 0.25 : 0,
-//                   duration: Duration(milliseconds: 200),
-//                   child: Icon(Icons.keyboard_arrow_right),
-//                 ),
-//               ],
-//             ),
-//           ),
-//           if (_isExpanded)
-//             Padding(
-//               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-//               child: Text(widget.content),
-//             ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+  const InfoColumn({super.key, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Rokkitt",
+                ),
+              ),
+            ),
+          ),
+          const Icon(Icons.keyboard_arrow_right),
+        ],
+      ),
+    );
+  }
+}
