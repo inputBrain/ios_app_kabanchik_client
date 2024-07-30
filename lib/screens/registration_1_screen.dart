@@ -3,7 +3,7 @@ import '../imports.dart';
 class Registration1Screen extends StatefulWidget {
   final RegisterUserModel userModel;
 
-  const Registration1Screen({Key? key, required this.userModel}) : super(key: key);
+  const Registration1Screen({super.key, required this.userModel});
 
   @override
   _Registration1ScreenState createState() => _Registration1ScreenState();
@@ -31,6 +31,8 @@ class _Registration1ScreenState extends State<Registration1Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('wwwroot/Images/background.jpg'),
@@ -53,7 +55,7 @@ class _Registration1ScreenState extends State<Registration1Screen> {
               ),
               Expanded(
                 child: GridView.builder(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 5,
                     crossAxisSpacing: 10,
@@ -91,11 +93,11 @@ class _Registration1ScreenState extends State<Registration1Screen> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: Text('Language not selected'),
-                              content: Text('Please select a language'),
+                              title: const Text('Language not selected'),
+                              content: const Text('Please select a language'),
                               actions: [
                                 TextButton(
-                                  child: Text('OK'),
+                                  child: const Text('OK'),
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
@@ -144,7 +146,7 @@ class _Registration1ScreenState extends State<Registration1Screen> {
       onPressed: () {
         _showAllFlags();
       },
-      child: Text('...'),
+      child: const Text('...'),
     );
   }
 
@@ -153,8 +155,8 @@ class _Registration1ScreenState extends State<Registration1Screen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('All Languages'),
-          content: Container(
+          title: const Text('All Languages'),
+          content: SizedBox(
             width: double.maxFinite,
             child: ListView.builder(
               shrinkWrap: true,

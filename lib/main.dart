@@ -1,4 +1,3 @@
-import 'package:kabanchik_app/models/RegisterUserModel.dart';
 
 import 'imports.dart';
 
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Registration2Screen(userModel: userModel),
+      home: Registration3Screen(userModel: userModel),
     );
   }
 }

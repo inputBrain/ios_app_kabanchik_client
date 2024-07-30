@@ -1,11 +1,9 @@
-import 'dart:ui';
-
 import '../imports.dart';
 
 class Registration2Screen extends StatefulWidget {
   final RegisterUserModel userModel;
 
-  const Registration2Screen({Key? key, required this.userModel}) : super(key: key);
+  const Registration2Screen({super.key, required this.userModel});
 
   @override
   _Registration2ScreenState createState() => _Registration2ScreenState();
@@ -31,6 +29,8 @@ class _Registration2ScreenState extends State<Registration2Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('wwwroot/Images/background.jpg'),
@@ -94,8 +94,7 @@ class _Registration2ScreenState extends State<Registration2Screen> {
                                 widget.userModel.clientStatus = selectedOption;
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) =>
-                                      NextScreen(userModel: widget.userModel)),
+                                  MaterialPageRoute(builder: (context) => Registration3Screen(userModel: widget.userModel)),
                                 );
                               } : null,
                               ),
@@ -147,82 +146,6 @@ class _Registration2ScreenState extends State<Registration2Screen> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class NextScreen extends StatelessWidget {
-  final RegisterUserModel userModel;
-
-  const NextScreen({Key? key, required this.userModel}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('wwwroot/Images/background.jpg'),
-            fit: BoxFit.cover,
-            opacity: 0.1,
-          ),
-        ),
-        child: SafeArea(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'FirstName: ',
-                            style: TextStyle(
-                                fontSize: 20, fontFamily: 'Rokkitt'),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            'App Language: ${userModel.appLanguage}',
-                            style: const TextStyle(
-                                fontSize: 20, fontFamily: 'Rokkitt'),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            'ClientType: ${userModel.clientStatus ==
-                                ClientStatus.master ? "Master" : "Client"}',
-                            style: const TextStyle(
-                                fontSize: 20, fontFamily: 'Rokkitt'),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: constraints.maxWidth * 0.05,
-                      vertical: constraints.maxHeight * 0.02,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ScreenNavigationWidget(text: 'back', onPressed: () {
-                          Navigator.pop(context);
-                        }),
-                        ScreenNavigationWidget(text: 'further', onPressed: () {
-
-                        }),
-                      ],
-                    ),
-                  ),
-                ],
-              );
-            },
-          ),
-        ),
       ),
     );
   }
