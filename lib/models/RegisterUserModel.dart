@@ -8,6 +8,7 @@ class RegisterUserModel {
   String? address;
   String? phoneNumber;
   String? taskDescription;
+  bool? isAcceptedTerms;
 
   RegisterUserModel({
     this.firstName,
@@ -17,6 +18,7 @@ class RegisterUserModel {
     this.address,
     this.phoneNumber,
     this.taskDescription,
+    this.isAcceptedTerms,
   });
 
 
