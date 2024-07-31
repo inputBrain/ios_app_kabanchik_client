@@ -10,11 +10,19 @@ class Registration3Screen extends StatefulWidget {
 }
 
 class _Registration3ScreenState extends State<Registration3Screen> {
+  bool isAcceptedTerms = false;
   bool isNextEnabled = false;
 
   @override
   void initState() {
     super.initState();
+  }
+
+  void _selectOption(bool option) {
+    setState(() {
+      isAcceptedTerms = option;
+      isNextEnabled = true;
+    });
   }
 
   @override
@@ -31,45 +39,127 @@ class _Registration3ScreenState extends State<Registration3Screen> {
           ),
         ),
         child: SafeArea(
-          child: Center(
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                return SingleChildScrollView(
-                  child: Container(
-                    width: constraints.maxWidth * 0.7,
-                    decoration: const BoxDecoration(
-                      border: Border(
-                        left: BorderSide(
-                          color: Color.fromRGBO(70, 172, 166, 1),
-                          width: 2.0,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 50),
+                      child: Center(
+                        child: Container(
+                          width: constraints.maxWidth * 0.7,
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              left: BorderSide(
+                                color: Color.fromRGBO(70, 172, 166, 1),
+                                width: 2.0,
+                              ),
+                            ),
+                          ),
+                          child: const Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              InfoColumn(
+                                title: "about the project++",
+                              ),
+                              InfoColumn(
+                                title: "how it works",
+                              ),
+                              InfoColumn(
+                                title: "guarantee and safety",
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                    child: const Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: Center(
+                      child: _buildOptionButton('accept the user agreement:\nI have read everything and agree to these terms and conditions', isAcceptedTerms),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: constraints.maxWidth * 0.05,
+                      vertical: constraints.maxHeight * 0.02,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        InfoColumn(
-                          title: "about the project ++",
+                        ScreenNavigationWidget(
+                          text: 'back',
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                         ),
-                        InfoColumn(
-                          title: "how it works",
-                        ),
-                        InfoColumn(
-                          title: "guarantee and safety",
+                        ScreenNavigationWidget(
+                          text: 'further',
+                          isFurtherEnabled: isNextEnabled,
+                          onPressed: isNextEnabled ? () {
+                            widget.userModel.isAcceptedTerms = isAcceptedTerms;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Registration3Screen(
+                                      userModel: widget.userModel)),
+                            );
+                          }
+                              : null,
                         ),
                       ],
                     ),
                   ),
-                );
-              },
-            ),
+                ],
+              );
+            },
           ),
         ),
       ),
     );
   }
+
+  Widget _buildOptionButton(String text, bool option) {
+    bool isSelected = isAcceptedTerms == option;
+
+    return GestureDetector(
+      onTap: () => _selectOption(option),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: const Color.fromRGBO(238, 108, 56, 1),
+                width: 7,
+              ),
+              color: isSelected ? const Color.fromRGBO(73, 68, 65, 1) : Colors.white,
+            ),
+          ),
+          const SizedBox(height: 15),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 16,
+              fontFamily: 'Rokkitt',
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
+
 class InfoColumn extends StatelessWidget {
   final String title;
 
