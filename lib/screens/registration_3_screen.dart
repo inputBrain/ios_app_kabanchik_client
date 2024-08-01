@@ -18,10 +18,10 @@ class _Registration3ScreenState extends State<Registration3Screen> {
     super.initState();
   }
 
-  void _selectOption(bool option) {
+  void _selectOption() {
     setState(() {
-      isAcceptedTerms = option;
-      isNextEnabled = true;
+      isAcceptedTerms = !isAcceptedTerms;
+      isNextEnabled = isAcceptedTerms;
     });
   }
 
@@ -104,12 +104,9 @@ class _Registration3ScreenState extends State<Registration3Screen> {
                             widget.userModel.isAcceptedTerms = isAcceptedTerms;
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => Registration3Screen(
-                                      userModel: widget.userModel)),
+                              MaterialPageRoute(builder: (context) => Registration3Screen(userModel: widget.userModel)),
                             );
-                          }
-                              : null,
+                          } : null,
                         ),
                       ],
                     ),
@@ -124,10 +121,10 @@ class _Registration3ScreenState extends State<Registration3Screen> {
   }
 
   Widget _buildOptionButton(String text, bool option) {
-    bool isSelected = isAcceptedTerms == option;
+    bool isSelected = isAcceptedTerms;
 
     return GestureDetector(
-      onTap: () => _selectOption(option),
+      onTap: _selectOption,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
