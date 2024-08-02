@@ -34,6 +34,19 @@ class TermsOfServiceScreen extends StatelessWidget {
                   ),
 
                   Expanded(
+
+                    child: Container(
+
+                      width: constraints.maxWidth * 0.7,
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          left: BorderSide(
+                            color: Color.fromRGBO(70, 172, 166, 1),
+                            width: 2.0,
+                          ),
+                        ),
+                      ),
+
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -47,25 +60,9 @@ class TermsOfServiceScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  ),
 
-                  // Padding(
-                  //     padding: EdgeInsets.only(
-                  //       top: constraints.maxHeight * 0.05
-                  //     ),
-                  //     child: Column(
-                  //       mainAxisAlignment: MainAxisAlignment.center,
-                  //       children: [
-                  //         Text('User Agreement',
-                  //           style: TextStyle(
-                  //               fontSize: 20, fontFamily: 'Rokkitt'
-                  //           ),
-                  //         ),
-                  //
-                  //
-                  //       ],
-                  //
-                  //   ),
-                  // ),
+
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: constraints.maxWidth * 0.05,
