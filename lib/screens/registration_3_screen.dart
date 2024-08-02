@@ -79,8 +79,22 @@ class _Registration3ScreenState extends State<Registration3Screen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 30),
-                    child: Center(
-                      child: _buildOptionButton('accept the user agreement:\nI have read everything and agree to these terms and conditions', isAcceptedTerms),
+                    child: Column(
+                      children: [
+                        Center(child: _buildCircleOption(isAcceptedTerms)),
+                        const SizedBox(height: 15),
+
+                        const Text(
+                          'accept the user agreement:\nI have read everything and agree to these terms and conditions',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'Rokkitt',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Icon(Icons.keyboard_arrow_down, size: 80),
+                    ]
                     ),
                   ),
                   Padding(
@@ -120,7 +134,7 @@ class _Registration3ScreenState extends State<Registration3Screen> {
     );
   }
 
-  Widget _buildOptionButton(String text, bool option) {
+  Widget _buildCircleOption(bool option) {
     bool isSelected = isAcceptedTerms;
 
     return GestureDetector(
@@ -139,16 +153,6 @@ class _Registration3ScreenState extends State<Registration3Screen> {
                 width: 7,
               ),
               color: isSelected ? const Color.fromRGBO(73, 68, 65, 1) : Colors.white,
-            ),
-          ),
-          const SizedBox(height: 15),
-          Text(
-            text,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 16,
-              fontFamily: 'Rokkitt',
-              fontWeight: FontWeight.bold,
             ),
           ),
         ],
