@@ -1,3 +1,5 @@
+import 'package:kabanchik_app/screens/NextScreen.dart';
+
 import '../imports.dart';
 
 class Registration3Screen extends StatefulWidget {
@@ -83,7 +85,6 @@ class _Registration3ScreenState extends State<Registration3Screen> {
                       children: [
                         Center(child: _buildCircleOption(isAcceptedTerms)),
                         const SizedBox(height: 15),
-
                         const Text(
                           'accept the user agreement:\nI have read everything and agree to these terms and conditions',
                           textAlign: TextAlign.center,
@@ -93,8 +94,15 @@ class _Registration3ScreenState extends State<Registration3Screen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const Icon(Icons.keyboard_arrow_down, size: 80),
-                    ]
+                        GestureDetector( onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const TermsOfServiceScreen()),
+                            );
+                          },
+                          child: const Icon(Icons.keyboard_arrow_down, size: 50),
+                        ),
+                      ]
                     ),
                   ),
                   Padding(
