@@ -18,7 +18,7 @@ class ScreenNavigationWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 55.0, vertical: 73.0),
       child: Container(
         width: 110,
-        height: 50,
+        height: 40,
         decoration:  BoxDecoration(
           color: isFurtherEnabled
               ? const Color.fromRGBO(116, 192, 188, 1)
