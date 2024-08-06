@@ -106,9 +106,10 @@ class _Registration3ScreenState extends State<Registration3Screen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: constraints.maxWidth * 0.05,
-                      vertical: constraints.maxHeight * 0.02,
+                    padding: EdgeInsets.only(
+                      left: constraints.maxWidth * 0.05,
+                      right: constraints.maxWidth * 0.05,
+                      bottom: constraints.maxHeight * 0.1,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
