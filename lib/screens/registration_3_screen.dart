@@ -60,18 +60,46 @@ class _Registration3ScreenState extends State<Registration3Screen> {
                               ),
                             ),
                           ),
-                          child: const Column(
+                          child: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              InfoColumn(
-                                title: "about the project++",
+
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => GuaranteeAndSafetyScreen()),
+                                  );
+                                },
+                                child: InfoColumn(
+                                  title: "about the project++",
+                                ),
                               ),
-                              InfoColumn(
-                                title: "how it works",
+
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => GuaranteeAndSafetyScreen()),
+                                  );
+                                },
+                                child: InfoColumn(
+                                  title: "how it works",
+                                ),
                               ),
-                              InfoColumn(
-                                title: "guarantee and safety",
+
+
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => GuaranteeAndSafetyScreen()),
+                                  );
+                                },
+                                child: InfoColumn(
+                                  title: "guarantee and safety",
+                                ),
                               ),
                             ],
                           ),
