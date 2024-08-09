@@ -9,6 +9,8 @@ export 'package:kabanchik_app/screens/registration_2_screen.dart';
 export 'package:kabanchik_app/screens/registration_3_screen.dart';
 export 'package:kabanchik_app/screens/terms_of_service_screen.dart';
 export 'package:kabanchik_app/screens/guarantee_and_safety_screen.dart';
+export 'package:kabanchik_app/screens/about_the_project_screen.dart';
+export 'package:kabanchik_app/screens/how_it_works_screen.dart';
 
 export 'package:kabanchik_app/widgets/screen_navigation_widget.dart';
 
