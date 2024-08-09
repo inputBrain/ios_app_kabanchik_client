@@ -1,5 +1,3 @@
-import 'package:kabanchik_app/screens/NextScreen.dart';
-
 import '../imports.dart';
 
 class Registration3Screen extends StatefulWidget {
@@ -69,10 +67,10 @@ class _Registration3ScreenState extends State<Registration3Screen> {
                                 onTap: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => GuaranteeAndSafetyScreen()),
+                                    MaterialPageRoute(builder: (context) => const AboutTheProjectScreen()),
                                   );
                                 },
-                                child: InfoColumn(
+                                child: const InfoColumn(
                                   title: "about the project++",
                                 ),
                               ),
@@ -81,10 +79,10 @@ class _Registration3ScreenState extends State<Registration3Screen> {
                                 onTap: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => GuaranteeAndSafetyScreen()),
+                                    MaterialPageRoute(builder: (context) => const HowItWorksScreen()),
                                   );
                                 },
-                                child: InfoColumn(
+                                child: const InfoColumn(
                                   title: "how it works",
                                 ),
                               ),
@@ -94,10 +92,10 @@ class _Registration3ScreenState extends State<Registration3Screen> {
                                 onTap: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => GuaranteeAndSafetyScreen()),
+                                    MaterialPageRoute(builder: (context) => const GuaranteeAndSafetyScreen()),
                                   );
                                 },
-                                child: InfoColumn(
+                                child: const InfoColumn(
                                   title: "guarantee and safety",
                                 ),
                               ),

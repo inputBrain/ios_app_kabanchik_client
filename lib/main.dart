@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: GuaranteeAndSafetyScreen(),
+      home: Registration3Screen(userModel: userModel),
     );
   }
 }
