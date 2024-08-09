@@ -23,7 +23,7 @@ class GuaranteeAndSafetyScreen extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(top: constraints.maxHeight * 0.01),
                     child: Text(
-                      'Guarantee and Safety',
+                      'Guarantee and safety',
                       style: TextStyle(
                         fontSize: constraints.maxWidth * 0.07,
                         fontFamily: 'Rokkitt',
